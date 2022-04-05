@@ -1,0 +1,11 @@
+.card__view{
+    background-color: #222020;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+}

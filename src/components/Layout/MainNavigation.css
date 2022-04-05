@@ -1,0 +1,38 @@
+.header__container{
+    background-color:rgb(34, 33, 33);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 0rem 0rem 1.5rem 1.5rem;
+    
+}
+
+.logo{
+    margin: 0;
+    font-weight: 700;
+    color: rgb(136, 136, 135);
+}
+
+.nav__list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.nav__link{
+    list-style: none;
+    
+}
+
+.nav__react-link{
+    text-decoration: none;
+    margin-left: 1rem;
+    font-size: .8rem;
+    color: rgb(136, 136, 135);
+}
+.nav__react-link:hover{
+    color: azure;
+}
