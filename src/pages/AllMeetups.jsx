@@ -1,27 +1,44 @@
+import { useEffect, useState } from "react";
 import MeetupList  from "../components/meetups/MeetupList";
 import classes from './allmeetups.module.css';
-const dummy__data =[
-   {
-      id:1,
-      title:'This is the first meetup',
-      image: '../assets/dribble1.png',
-      address: 'lekki toll gate, lagos',
-      description: 'This is a first , amazing meetup which you definitely shouls not miss.'
-   },
-   {
-      id:2,
-      title:'This is the second meetup',
-      image: '../assets/Atricks-min.png',
-      address: 'maitama, cresent street, Abuja',
-      description: 'This is a second , amazing meetup which you definitely shouls not miss.'
-   }
-];
 
 function AllMeetupsPage(){
+ const [isLoading, setIsLoading ] = useState(true);
+ const [loadedMeetups, setLoadedMeetups ] = useState([]);
+
+ useEffect(() =>{
+
+   fetch(
+      'https://my-meetups-4ad57-default-rtdb.firebaseio.com/meetups.json'
+   ).then(response => {
+    return response.json(); 
+   }).then( (data) =>{
+      const meetups = [];
+
+      for( const key in data){
+      const meetup = {
+         id:key,
+         ...data[key]
+      };
+       meetups.push(meetup);
+      }
+
+      setIsLoading(false);
+      setLoadedMeetups(meetups); 
+   })
+ }, []);
+  
+
+   if(isLoading){
+      return <section>
+         <h3>Loading.........</h3>
+      </section>
+   }
+
  return(
     <section> 
      <h1 className={classes.meetup__page__header}>All Meetups</h1>
-      <MeetupList meetups={dummy__data}/>
+      <MeetupList meetups={loadedMeetups}/>
       
     </section>
  )

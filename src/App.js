@@ -13,17 +13,12 @@ function App(){
         <MainNavigation/>
            
             <main>
-                 
-                   
                     <Routes>
                          <Route exact path="/" element={<AllMeetupsPage/>}/>
                          <Route  path="/new" element={<NewMeetups/>}/>
                          <Route  path="/fav" element={<Favourites/>}/>
                     </Routes> 
-                    
-                
             </main>
-           
            
         </div>
         </Router>
